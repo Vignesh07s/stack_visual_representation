@@ -1,0 +1,190 @@
+<html>
+<head>
+	<title>DSA made Easy</title>
+	<meta name="viewport" content="width=device-width,initial scale=1"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="D:\UIT_PROJECT\bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/lib/w3.css">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Geologica&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+		body{
+			margin: 20px;
+		}
+	</style>
+</head>
+<body>
+	<!-- <h1>Data Structures Made Easy</h1> -->
+	<h1 style="font-size: 60px;">STACK</h1>
+	<p class="def">Stack is a linear data structure which is used to store and retrive data items using the principle <span>"First In Last Out"</span> (or) <span>"Last In First Out"</span></p>
+	<div class="main-div">
+		<h3>Methods used to organise Stack are : </h3>
+		<ul>
+			<li>Push()</li>
+			<p class="def1">This method is used to push data items into 	the stack in a linear fashion (side-by-side). Recently 		pushed items will be at top of stack</p>
+			<li>Pop()</li>
+			<p class="def1">This method is used to pop data items from the stack. Each time it is called the top item will be popped out (or) Last pushed item will be popped out</p>
+			<li>Display()</li>
+			<p class="def1">This method is used to display data items present in the stack. The items are diplayed from top of stack to the bottom of stack</p>
+		</ul>
+		<h4>We can implement stack in two ways</h4>
+		<ul>
+			<li><u>Static implementation</u> : Here the stack size is fixed i.e., size of stack cannot be changed during run time or execution of the program</li>
+			<li><u>Dynamic Implementation</u> : Here the size of stack is dynamic i.e., each time we use push method a new memory from heap is attached to the existing stack</li>
+		</ul>
+		<h3><u>Static Implementation of Stack :</u></h3>
+		<div>
+			<h5>1. Create an array with size as per your requirement</h5>
+			<div id="step1">
+				<div class="code">
+					<code>int *stack,n;</code>
+					<code>printf("Choose the size of array : ");</code>
+					<code>scanf("%d",&n);</code>
+					<code>stack = (int *)malloc(n*sizeof(int));</code>
+				</div>
+				<button class="btn btn-dark" onclick="create()">Run Code</button>
+				<table align="center" id="create"></table>
+				<p class="len" align="center"></p>
+			</div>
+			<h5>2. Declare and intialize a variable called top</h5>
+			<div id="step2">
+				<div class="code">
+					<code>int top;</code>
+					<code>top=-1;</code>
+				</div>
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/></svg>
+				     top is a varible which always points to the top of stack(usually stores the index of last pushed data item)
+				</p>
+				</p><p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/></svg>
+				     top = -1 indicates that the stack is empty
+				</p>
+			</div>
+			<h5>3. Develop push function</h5>
+			<div id="step3">
+				<div class="code">
+					<code>int isFull(int top)</code>
+					<code>{</code>
+						<div class="indent">
+							<code>if(top==size-1)</code>
+							<div class="indent">
+								<code>return 0;</code>
+							</div>
+							<code>return 1;</code>
+						</div>
+					<code>}</code>
+					<code>int push(int *s,int top)</code>
+					<code>{</code>
+					<div class="indent">
+						<code>if( isFull(top) )</code>
+						<code>{</code>
+						<div class="indent">
+							<code>//increament top</code>
+							<code>top++;</code>
+							<code>printf("Enter an integer to push it into stack : ");</code>
+							<code>scanf("%d", s+top); //s+top ==> &s[top]</code>
+						</div>
+						<code>}</code>
+						<code>return 0;</code>
+					</div>
+					<code>}</code>
+				</div>
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/></svg>
+					 isFull( ) is a function which returns 0 if stack is full and 1 otherwise
+				</p>
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/></svg>
+					 if stack is not full then we increament top value and store the data item at stack[top]
+				</p>
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/></svg>
+					 Below is the button which implements above push function
+				</p>
+				<button type="button" class="btn btn-lg btn-dark" onclick="push()">push</button>
+				<table align="center" id="push"></table>
+				<p class="len" align="center"></p>
+			</div>
+			<h5>4. Develop pop function</h5>
+			<div id="step4">
+				<div class="code">
+					<code>int pop(int *stack, int top)</code>
+					<code>{</code>
+					<div class="indent">
+						<code>if(top>=0)</code>
+						<code>{</code>
+						<div class="indent">
+							<code>*(stack+top)=NULL;</code>
+							<code>top--;</code>
+							<code>return 0;</code>
+						</div>
+						<code>}</code>
+						<code>printf("Stack Underflow");</code>
+						<code>return 0;</code>
+					</div>
+					<code>}</code>
+				</div>
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/></svg>
+					 In the above code "Stack Underflow" is a message which appears on console when we try to perform pop operation on empty stack
+				</p>
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/></svg>
+					 Below is the button which implements above pop function
+				</p>
+				<button type="button" class="btn btn-lg btn-dark" onclick="pop()">pop</button>
+				<table align="center" id="pop"></table>
+				<p class="len" align="center"></p>
+			</div>
+			<h5>5. Display the items in stack</h5>
+			<div id="step5">
+				<div class="code">
+					<code>int isEmpty(int top)</code>
+					<code>{</code>
+					<div class="indent">
+						<code>if(top==-1)</code>
+						<code>{</code>
+						<div class="indent">
+							<code>printf("Empty Stack!!");</code>
+							<code>return 0;</code>
+						</div>
+						<code>}</code>
+						<code>return 1;</code>
+					</div>
+					<code>}</code>
+					<code>int display(int *stack, int top)</code>
+					<code>{</code>
+					<div class="indent">
+						<code>if(isEmpty(top))</code>
+						<code>{</code>
+						<div class="indent">
+							<code>int i;</code>
+							<code>for(i=top; i&gt;=0; i--)</code>
+							<div class="indent">
+								<code>printf("%d ", *(stack+i));</code>
+							</div>
+						</div>
+						<code>}</code>
+					</div>
+					<code>}</code>
+				</div>
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/></svg>
+					 isEmpty( ) is a function which displays "Empty Stack!!" and returns 0 if stack is empty, returns 1 otherwise
+				</p>
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/></svg>
+					 display() function displays elements from top(i.e., stack[top] to stack[0])
+				</p>
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/></svg>
+					 Below is the button which implements above display function. This function displays the elements thats are pushed using push function
+				</p>
+				<button type="button" class="btn btn-lg btn-dark" onclick="display()">display</button>
+				<table align="center" id="display"></table>
+			</div>
+		<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
